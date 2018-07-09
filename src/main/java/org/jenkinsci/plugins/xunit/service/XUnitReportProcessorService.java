@@ -108,26 +108,26 @@ public class XUnitReportProcessorService implements Serializable {
                 }
             }
 
-            if (!oldResults.isEmpty()) {
-                long localTime = System.currentTimeMillis();
-                if (localTime < xUnitToolInfo.getBuildTime() - 1000) {
-                    // build time is in the the future. clock on this slave must
-                    // be running behind
-                    String msg = "Clock on this slave is out of sync with the master, and therefore \n" +
-                            "I can't figure out what test results are new and what are old.\n" +
-                            "Please keep the slave clock in sync with the master.";
-                    throw new NoNewTestReportException(msg);
-                }
-
-                StringBuilder stringBuilder = new StringBuilder();
-                stringBuilder.append(String.format("Test reports were found but not all of them are new. Did all the tests run?%n"));
-                for (File f : oldResults) {
-                    stringBuilder.append(String.format("  * %s is %s old%n", f, Util.getTimeSpanString(xUnitToolInfo.getBuildTime()
-                            - f.lastModified())));
-                }
-                String msg = stringBuilder.toString();
-                throw new NoNewTestReportException(msg);
-            }
+//            if (!oldResults.isEmpty()) {
+//                long localTime = System.currentTimeMillis();
+//                if (localTime < xUnitToolInfo.getBuildTime() - 1000) {
+//                    // build time is in the the future. clock on this slave must
+//                    // be running behind
+//                    String msg = "Clock on this slave is out of sync with the master, and therefore \n" +
+//                            "I can't figure out what test results are new and what are old.\n" +
+//                            "Please keep the slave clock in sync with the master.";
+//                    throw new NoNewTestReportException(msg);
+//                }
+//
+//                StringBuilder stringBuilder = new StringBuilder();
+//                stringBuilder.append(String.format("Test reports were found but not all of them are new. Did all the tests run?%n"));
+//                for (File f : oldResults) {
+//                    stringBuilder.append(String.format("  * %s is %s old%n", f, Util.getTimeSpanString(xUnitToolInfo.getBuildTime()
+//                            - f.lastModified())));
+//                }
+//                String msg = stringBuilder.toString();
+//                throw new NoNewTestReportException(msg);
+//            }
         }
     }
 

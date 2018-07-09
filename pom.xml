@@ -8,7 +8,7 @@
     </parent>
 
     <artifactId>xunit</artifactId>
-    <version>2.0.5-SNAPSHOT</version>
+    <version>2.0.5.1-Cox</version>
     <packaging>hpi</packaging>
     <name>xUnit plugin</name>
     <url>http://wiki.jenkins-ci.org/display/JENKINS/xUnit+Plugin</url>
